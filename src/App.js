@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
   var person = {
@@ -40,6 +41,8 @@ function App() {
         <h3 style={{backgroundColor:'salmon', color:'blue'}}>{institution.university + ", Dept of " + institution.dept}</h3>
         <p>I am a React Developer</p>
 
+        <Counter></Counter>
+
         {/* show names dynamically in UI */}
         <ul>
           {/* <li>{names[0]}</li> */}
@@ -70,6 +73,16 @@ function App() {
       </header>
     </div>
   );
+}
+
+// declare a component state
+function Counter(){
+  const [count, setCount] = useState(10);
+  return(
+    <div>
+      <h1>Count: {count}</h1>
+    </div>
+  )
 }
 
 function Product(props){
