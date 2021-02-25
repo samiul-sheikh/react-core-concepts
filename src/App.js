@@ -14,6 +14,7 @@ function App() {
     color: 'white',
     backgroundColor: 'goldenrod'
   }
+  const names = ['hannan', 'manosh', 'polash', 'sakib']
   return (
     <div className="App">
       <header className="App-header">
@@ -24,27 +25,31 @@ function App() {
         {/* add style directly */}
         <h3 style={{backgroundColor:'salmon', color:'blue'}}>{institution.university + ", Dept of " + institution.dept}</h3>
         <p>I am a React Developer</p>
-        {/* using my component */}
-        <Person></Person>
-        <Person></Person>
+        {/* pass dynamic data to components */}
+        <Person name={names[0]} job="php"></Person>
+        <Person name="Sayed" job="android"></Person>
+        <Person name="lingcon" job="java"></Person>
+        <Person name="nobel" job="javascript"></Person>
       </header>
     </div>
   );
 }
 
 // declare my component
-function Person(){
+function Person(props){
   // style object
   const personStyle={
     border:'2px solid yellow',
+    width: '400px',
     margin: '10px',
     padding: '10px'
   }
+  console.log(props);
   return (
     <div style={personStyle}> 
     {/* <div style={{border:'2px solid red', margin:'10px', padding:'10px'}}> */}
-      <h5>Front End Development</h5>
-      <p>working with React</p>
+      <h5>Engineer: {props.name}</h5>
+      <p>working with {props.job}</p>
     </div>
   )
 }
