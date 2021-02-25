@@ -34,6 +34,8 @@ function App() {
 
         {/* access object array */}
         <Product product={products[0]}></Product>
+        <Product product={products[1]}></Product>
+        <Product product={products[2]}></Product>
         {/* <Product name={products[0].name} price={products[0].price}></Product> */}
 
         {/* pass dynamic data to components */}
@@ -53,13 +55,17 @@ function Product(props){
     backgroundColor:'lightgrey',
     height:'200px',
     width:'200px',
-    float:'left'
+    float:'left',
+    margin:'10px'
   }
-  console.log(props);
+  // console.log(props);
+  // destructure for read
+  const {name, price} = props.product;
+  console.log(name, price);
   return (
     <div style={productStyle}>
-      <h3>{props.product.name}</h3>
-      <h5>{props.product.price}</h5>
+      <h3>{name}</h3>
+      <h5>{price}</h5>
       <button>Buy Now</button>
     </div>
   )
