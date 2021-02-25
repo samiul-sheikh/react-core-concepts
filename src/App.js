@@ -24,9 +24,28 @@ function App() {
         {/* add style directly */}
         <h3 style={{backgroundColor:'salmon', color:'blue'}}>{institution.university + ", Dept of " + institution.dept}</h3>
         <p>I am a React Developer</p>
+        {/* using my component */}
+        <Person></Person>
+        <Person></Person>
       </header>
     </div>
   );
 }
 
+// declare my component
+function Person(){
+  // style object
+  const personStyle={
+    border:'2px solid yellow',
+    margin: '10px',
+    padding: '10px'
+  }
+  return (
+    <div style={personStyle}> 
+    {/* <div style={{border:'2px solid red', margin:'10px', padding:'10px'}}> */}
+      <h5>Front End Development</h5>
+      <p>working with React</p>
+    </div>
+  )
+}
 export default App;
