@@ -18,10 +18,10 @@ function App() {
   const names = ['hannan', 'manosh', 'polash', 'sakib', 'onik'];
   //   create object in array
   const products = [
-    {name:'Photoshop', price:'$80.99'},
-    {name:'Illustrator', price:'50.99'},
-    {name:'PDF Reader', price:'$5.99'},
-    {name:'Premium EI', price:'$249.99'}
+    { name: 'Photoshop', price: '$80.99' },
+    { name: 'Illustrator', price: '50.99' },
+    { name: 'PDF Reader', price: '$5.99' },
+    { name: 'Premium EI', price: '$249.99' }
   ];
 
   // using maps on data
@@ -38,7 +38,7 @@ function App() {
         {/* access object also design via style object  */}
         <h1 className="" style={style}> Heading : {person.name + " " + person.job}</h1>
         {/* add style directly */}
-        <h3 style={{backgroundColor:'salmon', color:'blue'}}>{institution.university + ", Dept of " + institution.dept}</h3>
+        <h3 style={{ backgroundColor: 'salmon', color: 'blue' }}>{institution.university + ", Dept of " + institution.dept}</h3>
         <p>I am a React Developer</p>
 
         <Counter></Counter>
@@ -76,28 +76,44 @@ function App() {
 }
 
 // declare a component state
-function Counter(){
+// function Counter(){
+//   const [count, setCount] = useState(10);
+//   // const handleIncrease = () => console.log('clicked');
+//   const handleIncrease = () => setCount(count + 1);
+//   return(
+//     <div>
+//       <h1>Count: {count}</h1>
+//       <button onClick={handleIncrease}>Increase</button>
+//     </div>
+//   )
+// }
+
+// declare a component state
+function Counter() {
   const [count, setCount] = useState(10);
-  return(
+  return (
     <div>
       <h1>Count: {count}</h1>
+      {/* Component state hook and set state method */}
+      <button onClick={() => setCount(count - 1)}>Decrease</button>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
     </div>
   )
 }
 
-function Product(props){
-  const productStyle={
-    border:'1px solid gray',
-    borderRadius:'5px',
-    backgroundColor:'lightgrey',
-    height:'300px',
-    width:'300px',
-    float:'left',
-    margin:'10px'
+function Product(props) {
+  const productStyle = {
+    border: '1px solid gray',
+    borderRadius: '5px',
+    backgroundColor: 'lightgrey',
+    height: '300px',
+    width: '300px',
+    float: 'left',
+    margin: '10px'
   }
   // console.log(props);
   // destructure for read
-  const {name, price} = props.product;
+  const { name, price } = props.product;
   // console.log(name, price);
   return (
     <div style={productStyle}>
@@ -109,18 +125,18 @@ function Product(props){
 }
 
 // declare my component
-function Person(props){
+function Person(props) {
   // style object
-  const personStyle={
-    border:'2px solid yellow',
+  const personStyle = {
+    border: '2px solid yellow',
     width: '400px',
     margin: '10px',
     padding: '10px'
   }
   // console.log(props);
   return (
-    <div style={personStyle}> 
-    {/* <div style={{border:'2px solid red', margin:'10px', padding:'10px'}}> */}
+    <div style={personStyle}>
+      {/* <div style={{border:'2px solid red', margin:'10px', padding:'10px'}}> */}
       <h5>Engineer: {props.name}</h5>
       <p>working with {props.job}</p>
     </div>
