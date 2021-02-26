@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   var person = {
@@ -42,6 +42,7 @@ function App() {
         <p>I am a React Developer</p>
 
         <Counter></Counter>
+        <Users></Users>
 
         {/* show names dynamically in UI */}
         <ul>
@@ -97,6 +98,34 @@ function Counter() {
       {/* Component state hook and set state method */}
       <button onClick={() => setCount(count - 1)}>Decrease</button>
       <button onClick={() => setCount(count + 1)}>Increase</button>
+    </div>
+  )
+}
+
+// Load dynamic data, API call useEffect integrate state
+function Users() {
+  const [users, setUsers] = useState([])
+
+  // data load
+  useEffect(() => {
+    // console.log('calling effect');
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => setUsers(data))
+  }, [])
+
+  return (
+    <div>
+      <h3>Dynamic Users : {users.length}</h3>
+      {/* show users in UI */}
+      <ul>
+        {
+          users.map(user => <li>{user.name}</li>)
+        }
+      </ul>
+      {
+        console.log(users)
+      }
     </div>
   )
 }
